@@ -8,12 +8,35 @@
 import SwiftUI
 import CoreData
 
+
+struct DateView: View {
+    var body: some View {
+      // Container to add background and corner radius to
+        VStack {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Friday, 10th January")
+                        .font(.title)
+                    Text("Today")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                Spacer()
+            }.padding()
+        }
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 5)
+    }
+}
+
 struct CartItem : View {
+    var item: Item
     var body : some View {
         HStack {
             Image(systemName: "heart.circle")
-            Text("Fresh Banana").padding(.trailing, 100)
-            Text("$100")
+            Text(item.desc!).padding(.trailing, 100)
+            Text(String(item.price))
         }
         Text("All year round").foregroundColor(Color.secondary)
     }
@@ -84,64 +107,39 @@ struct CheckoutButtons: View {
 }
 
 struct Cart: View {
+    var item: Item
     var body : some View {
         VStack (alignment: .leading) {
-            CartItem.init()
+            CartItem.init(item: item)
             CartItemButtonRow.init()
         }
         
     }
 }
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+struct CartView : View {
+    @Environment(\.managedObjectContext) var viewContext
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    @State var translation: CGSize = .zero
+    var items: FetchedResults<Item>
     var body: some View {
-        HStack {
-            NavigationView {
-                List {
-                    ForEach(items) { item in
-                        Cart.init()
-                    }
-                    .onDelete(perform: deleteItems)
-                    CheckoutButtons.init()
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                ForEach(items) { item in
+                    Cart.init(item: item)
                 }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                    ToolbarItem {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
-                        }
-                    }
-                }
-            }
+                .onDelete(perform: deleteItems)
+                CheckoutButtons.init()
+            }.frame(width: geometry.size.width * 0.95 , height: geometry.size.height * 0.8)
+            
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+            .offset(x: self.translation.width, y: self.translation.height) // 2
             
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
@@ -156,6 +154,54 @@ struct ContentView: View {
             }
         }
     }
+}
+
+
+struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<Item>
+    
+    private func getCardWidth(_ geometry: GeometryProxy, id: Int) -> CGFloat {
+            let offset: CGFloat = CGFloat(items.count - 1 - id) * 10
+        print(geometry.size.width - offset)
+            return geometry.size.width - offset
+        }
+        
+        // 3
+        /// Return the CardViews frame offset for the given offset in the array
+        /// - Parameters:
+        ///   - geometry: The geometry proxy of the parent
+        ///   - id: The ID of the current user
+        private func getCardOffset(_ geometry: GeometryProxy, id: Int) -> CGFloat {
+            return  CGFloat(items.count - 1 - id) * 10
+        }
+
+    var body: some View {
+        VStack {
+            GeometryReader { geometry in
+                VStack {
+                    DateView().frame(width: geometry.size.width * 0.95).padding(.trailing)
+                    ZStack
+                    {
+                        ForEach (self.items, id: \.self) { item in
+                            CartView(items: items)
+                                .frame(width: self.getCardWidth(geometry, id: Int(item.id)), height: geometry.size.height)
+                                .offset(x: 0, y: self.getCardOffset(geometry, id: Int(item.id)))
+                        }
+                    }
+                    Spacer()
+                }
+            }
+        }.padding(.leading)
+            .padding(.top)
+        
+    }
+
+   
 }
 
 private let itemFormatter: DateFormatter = {

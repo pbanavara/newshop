@@ -48,6 +48,7 @@
 		0BBE7623298C14CE004880C9 /* newshopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newshopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBE7627298C14CE004880C9 /* newshopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newshopUITests.swift; sourceTree = "<group>"; };
 		0BBE7629298C14CE004880C9 /* newshopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newshopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BBE7636298CDDA1004880C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 		0BBE7606298C14CB004880C9 /* newshop */ = {
 			isa = PBXGroup;
 			children = (
+				0BBE7636298CDDA1004880C9 /* Info.plist */,
 				0BBE7607298C14CB004880C9 /* newshopApp.swift */,
 				0BBE7609298C14CB004880C9 /* ContentView.swift */,
 				0BBE760B298C14CE004880C9 /* Assets.xcassets */,
@@ -428,7 +430,7 @@
 				DEVELOPMENT_TEAM = BJAL34ZPP9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = newshop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -457,7 +459,7 @@
 				DEVELOPMENT_TEAM = BJAL34ZPP9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = newshop/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

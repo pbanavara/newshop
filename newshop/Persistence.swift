@@ -9,13 +9,26 @@ import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
+    
+    struct ItemStr {
+        var id: Int
+        var desc: String
+        var price: Float
+        
+    }
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<5 {
+        let descriptions: [ItemStr] = [ ItemStr(id: 0, desc: "Banana", price: 100.0), ItemStr(id: 1, desc: "Orange", price: 20.0),
+                                        ItemStr(id: 2, desc: "Mango", price: 500.0), ItemStr(id: 3, desc: "Melon", price: 100.0),
+                                        ItemStr(id: 4, desc: "Grapes", price: 500.0)]
+        descriptions.forEach { description in
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            newItem.id = Int16(description.id)
+            newItem.desc = description.desc
+            newItem.price = description.price
         }
         do {
             try viewContext.save()
