@@ -10,6 +10,21 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
     
+    
+    let descriptions: [ItemStr] = [ ItemStr(id: 0, desc: "Banana", price: 100.0), ItemStr(id: 1, desc: "Orange", price: 20.0),
+                                    ItemStr(id: 2, desc: "Mango", price: 500.0), ItemStr(id: 3, desc: "Melon", price: 100.0),
+                                    ItemStr(id: 4, desc: "Grapes", price: 500.0)]
+    
+    func initialize_descr() {
+        descriptions.forEach { description in
+            let newItem = Item()
+            newItem.timestamp = Date()
+            newItem.id = Int16(description.id)
+            newItem.desc = description.desc
+            newItem.price = description.price
+        }
+    }
+    
     struct ItemStr {
         var id: Int
         var desc: String
@@ -20,16 +35,7 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        let descriptions: [ItemStr] = [ ItemStr(id: 0, desc: "Banana", price: 100.0), ItemStr(id: 1, desc: "Orange", price: 20.0),
-                                        ItemStr(id: 2, desc: "Mango", price: 500.0), ItemStr(id: 3, desc: "Melon", price: 100.0),
-                                        ItemStr(id: 4, desc: "Grapes", price: 500.0)]
-        descriptions.forEach { description in
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.id = Int16(description.id)
-            newItem.desc = description.desc
-            newItem.price = description.price
-        }
+        
         do {
             try viewContext.save()
         } catch {
@@ -46,9 +52,11 @@ struct PersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "newshop")
         if inMemory {
+            initialize_descr()
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            print(storeDescription.description)
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -65,5 +73,17 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
+    func save() {
+        let context = container.viewContext
+
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Show some error here
+            }
+        }
     }
 }

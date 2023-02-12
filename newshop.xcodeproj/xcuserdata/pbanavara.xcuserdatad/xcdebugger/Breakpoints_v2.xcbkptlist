@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EB691C69-45D7-43DB-AA0E-CC950683C142"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8593325B-3783-43E5-82FE-319CBBD04EBF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "newshop/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "8593325B-3783-43E5-82FE-319CBBD04EBF - 535fc082977bd6f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ZStack&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt;&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ZStack&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt;&gt;)&gt;&gt; in closure #1 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ZStack&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt;&gt;)&gt;&gt;&gt; in newshop.cardStackView.body.getter : some"
+                  moduleName = "newshop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbanavara/dev/newshop/newshop/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "388">
+               </Location>
+               <Location
+                  uuid = "8593325B-3783-43E5-82FE-319CBBD04EBF - cc89587c9f44bc4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (newshop.Item) -&gt; newshop.DateView in closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ZStack&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt;&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ZStack&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt;&gt;)&gt;&gt; in closure #1 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ZStack&lt;SwiftUI.ForEach&lt;SwiftUI.FetchedResults&lt;newshop.Item&gt;, newshop.Item, newshop.DateView&gt;&gt;)&gt;&gt;&gt; in newshop.cardStackView.body.getter : some"
+                  moduleName = "newshop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbanavara/dev/newshop/newshop/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "426088A8-8D24-4168-8BB9-E4E25BE5EE3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "newshop/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
